@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 400px;
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.name-container {
+  margin-bottom: 16px;
+}
