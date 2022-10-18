@@ -1,0 +1,21 @@
+.title {
+  display: flex;
+  justify-content: center;
+  width: 645px;
+}
+
+.form {
+  padding: 0 80px;
+  border-top: 1px solid #d9dde8;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #d9dde8;
+
+  button {
+    width: 265px;
+    height: 48px;
+  }
+}

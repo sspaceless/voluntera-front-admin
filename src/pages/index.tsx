@@ -1,7 +1,7 @@
 import { Input, Button, MultiSelect, Modal } from '@mantine/core';
 import { IconSearch } from '@tabler/icons';
 import { FC, useState } from 'react';
-import { OrganizationCard } from '../components';
+import { NewOrganizationForm, OrganizationCard } from '../components';
 
 import styles from './HomePage.module.scss';
 
@@ -23,9 +23,7 @@ const HomePage: FC = () => {
 
   return (
     <>
-      <Modal opened={isFormOpened} onClose={toggleModal} title="Introduce yourself!">
-        asd
-      </Modal>
+      <NewOrganizationForm isOpened={isFormOpened} onClose={toggleModal} />
       <div className={styles['tools-container']}>
         <div className={styles['left-container']}>
           <Input rightSection={<IconSearch size={15} />} placeholder="Пошук за ключовими словами" />
@@ -34,6 +32,7 @@ const HomePage: FC = () => {
           </Button>
         </div>
         <MultiSelect
+          style={{ width: '400px' }}
           data={['Is not that', 'awesome?']}
           placeholder="Одеса, Одеська область: 3 центри"
         />
