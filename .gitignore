@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+.VSCodeCounter/
+
+node_modules
+
+.next
+.eslintcache
+.env.local
