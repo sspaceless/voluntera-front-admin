@@ -9,7 +9,6 @@ import {
   Text,
   Box,
   Input,
-  Group,
 } from '@mantine/core';
 import {
   IconBed,
@@ -23,14 +22,37 @@ import {
 } from '@tabler/icons';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 
-import { IParams, OrganizationProps } from './types';
 import { CenterCard, NewCenterForm } from '../../components';
 
 import { MOCK_ORGANIZATIONS } from '../../constants';
 import styles from './Organization.module.scss';
+
+export type Center = {
+  id: string;
+  name: string;
+  city: string;
+  address: string;
+  services: string[];
+};
+
+export type OrganizationData = {
+  id: string;
+  name: string;
+  imageUrl: string;
+  centers: Center[];
+};
+
+export type OrganizationProps = {
+  data: OrganizationData;
+};
+
+export interface IParams extends ParsedUrlQuery {
+  id: string;
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = MOCK_ORGANIZATIONS.map((item) => ({

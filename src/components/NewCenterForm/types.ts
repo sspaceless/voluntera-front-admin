@@ -9,4 +9,7 @@ export type FormValues = {
   longitude: string;
   latitude: string;
   phoneNumber: string;
+  start: string;
+  end: string;
+  services: string[];
 };
