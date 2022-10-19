@@ -1,4 +1,4 @@
-import { Modal, TextInput, Textarea, Button, Box } from '@mantine/core';
+import { Modal, TextInput, Textarea, Button, Text, Box } from '@mantine/core';
 import { IconCheck } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { FC } from 'react';
@@ -8,7 +8,7 @@ import { ImageDropzone } from '../UI';
 import { FormValues, NewOrganizationFormProps } from './types';
 import styles from './NewOrganizationForm.module.scss';
 
-export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpened, onClose }) => {
+export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpen, onClose }) => {
   const form = useForm<FormValues>({
     initialValues: {
       name: '',
@@ -24,10 +24,16 @@ export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpened, on
     onClose();
   };
 
-  const modalTitle = <div className={styles.title}>Створити нову організацію</div>;
+  const modalTitle = (
+    <Box className={styles.title}>
+      <Text size={24} weight={700}>
+        Створити нову організацію
+      </Text>
+    </Box>
+  );
 
   return (
-    <Modal opened={isOpened} onClose={onClose} title={modalTitle} size={720} padding="xs" centered>
+    <Modal opened={isOpen} onClose={onClose} title={modalTitle} size={720} padding="xs" centered>
       <form onSubmit={form.onSubmit(handleFormSubmission)}>
         <Box className={styles.form}>
           <TextInput

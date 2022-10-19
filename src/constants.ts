@@ -1,9 +1,16 @@
 export enum SERVICES {
-  'food' = 'Їжа',
-  'clothes' = 'Одяг',
-  'aid' = 'Медична допомога',
-  'housing' = 'Житло',
+  'housing' = 'housing',
+  'clothes' = 'clothes',
+  'food' = 'food',
+  'aid' = 'aid',
 }
+
+export const SERVICES_LABELS = new Map([
+  [SERVICES.housing, 'Житло'],
+  [SERVICES.clothes, 'Одяг'],
+  [SERVICES.food, 'Їжа'],
+  [SERVICES.aid, 'Медична допомога'],
+]);
 
 export const MOCK_ORGANIZATIONS = [
   {
@@ -11,9 +18,27 @@ export const MOCK_ORGANIZATIONS = [
     name: 'Повернись ситим',
     imageUrl: '/images/mock.png',
     centers: [
-      { id: '11', city: 'місто А', address: 'вул. Вулична, 1д.', services: ['food', 'clothes'] },
-      { id: '12', city: 'місто А', address: 'вул. Вулична, 2д.', services: ['aid', 'food'] },
-      { id: '12', city: 'місто А', address: 'вул. Вулична, 3д.', services: ['food', 'housing'] },
+      {
+        id: '11',
+        name: 'Центр допомоги 1',
+        city: 'місто А',
+        address: 'вул. Вулична, 1д.',
+        services: ['food', 'clothes'],
+      },
+      {
+        id: '12',
+        name: 'Центр допомоги 2',
+        city: 'місто А',
+        address: 'вул. Вулична, 2д.',
+        services: ['aid', 'food'],
+      },
+      {
+        id: '12',
+        name: 'Центр допомоги 3',
+        city: 'місто А',
+        address: 'вул. Вулична, 3д.',
+        services: ['food', 'housing'],
+      },
     ],
   },
   { id: '2', name: 'Повернись ситим', imageUrl: '/images/mock.png' },

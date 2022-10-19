@@ -23,7 +23,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
           white: ['#FFFFFF'],
           background: ['#F5F5F5'],
           stroke: ['#D9DDE8'],
-          error: ['#D74747'],
+          error: ['#d74747'],
           success: ['#4EB828'],
         },
       }}

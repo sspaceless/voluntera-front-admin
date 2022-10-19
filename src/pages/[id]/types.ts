@@ -3,9 +3,10 @@ import { SERVICES } from '../../constants';
 
 export type Center = {
   id: string;
+  name: string;
   city: string;
   address: string;
-  services: SERVICES;
+  services: string[];
 };
 
 export type Organization = {

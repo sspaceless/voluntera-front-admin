@@ -13,10 +13,10 @@ export const getStaticProps: GetStaticProps = async () => ({
 });
 
 const HomePage: FC = () => {
-  const [isFormOpened, setIsFormOpened] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const toggleModal = () => {
-    setIsFormOpened((prevState) => !prevState);
+    setIsFormOpen((prevState) => !prevState);
   };
 
   const organizations = MOCK_ORGANIZATIONS.map((item) => (
@@ -25,7 +25,7 @@ const HomePage: FC = () => {
 
   return (
     <>
-      <NewOrganizationForm isOpened={isFormOpened} onClose={toggleModal} />
+      <NewOrganizationForm isOpen={isFormOpen} onClose={toggleModal} />
       <div className={styles['tools-container']}>
         <div className={styles['left-container']}>
           <Input rightSection={<IconSearch size={15} />} placeholder="Пошук за ключовими словами" />

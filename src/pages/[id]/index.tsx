@@ -24,10 +24,10 @@ import {
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { IParams, OrganizationProps } from './types';
-import { CenterCard } from '../../components';
+import { CenterCard, NewCenterForm } from '../../components';
 
 import { MOCK_ORGANIZATIONS } from '../../constants';
 import styles from './Organization.module.scss';
@@ -53,8 +53,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Organization: FC<OrganizationProps> = ({ data }) => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const theme = useMantineTheme();
   const router = useRouter();
+
+  const toggleModal = () => {
+    setIsFormOpen((prevState) => !prevState);
+  };
 
   const handleForwardButtonClick = () => {
     router.push('/');
@@ -63,7 +69,7 @@ const Organization: FC<OrganizationProps> = ({ data }) => {
   const imageAlt = `${data.id}-organization-image`;
   const centers = data.centers.map((item) => <CenterCard key={item.id} data={item} />);
   const organizationInfo = (
-    <Card p={0} className={styles['info-card']}>
+    <Card p={0} className={styles['info-card']} withBorder>
       <Image src={data.imageUrl} alt={imageAlt} width={224} height={224} />
       <Box className={styles['info-container']}>
         <Box my="sm" mx="md" className={styles['info-label']}>
@@ -144,36 +150,41 @@ const Organization: FC<OrganizationProps> = ({ data }) => {
   );
 
   return (
-    <Box style={{ display: 'flex', justifyContent: 'center' }}>
-      <Box className={styles.container}>
-        <Box mb="xl" className={styles['navigation-container']}>
-          <Button p={8} onClick={handleForwardButtonClick}>
-            <IconChevronLeft size={20} />
-          </Button>
-          <Text ml="md" weight={700} size={24}>
-            Деталі Організації
-          </Text>
-        </Box>
-        {organizationInfo}
-        <Box my="xl">
-          <Text weight={700} size={24}>
-            Діючі Центри
-          </Text>
-          <Box mt="xl" className={styles['tools-container']}>
-            <Input
-              mr="md"
-              rightSection={<IconSearch size={15} />}
-              placeholder="Пошук за назвою центру"
-            />
-            <Button leftIcon={<IconPlus />}>Додати центр</Button>
+    <>
+      <NewCenterForm isOpen={isFormOpen} onClose={toggleModal} />
+      <Box style={{ display: 'flex', justifyContent: 'center' }}>
+        <Box className={styles.container}>
+          <Box mb="xl" className={styles['navigation-container']}>
+            <Button p={8} onClick={handleForwardButtonClick}>
+              <IconChevronLeft size={20} />
+            </Button>
+            <Text ml="md" weight={700} size={24}>
+              Деталі Організації
+            </Text>
           </Box>
-        </Box>
+          {organizationInfo}
+          <Box my="xl">
+            <Text weight={700} size={24}>
+              Діючі Центри
+            </Text>
+            <Box mt="xl" className={styles['tools-container']}>
+              <Input
+                mr="md"
+                rightSection={<IconSearch size={15} />}
+                placeholder="Пошук за назвою центру"
+              />
+              <Button leftIcon={<IconPlus />} onClick={toggleModal}>
+                Додати центр
+              </Button>
+            </Box>
+          </Box>
 
-        <Card p="md" className={styles['centers-card']}>
-          {centers}
-        </Card>
+          <Card p="md" className={styles['centers-card']}>
+            {centers}
+          </Card>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

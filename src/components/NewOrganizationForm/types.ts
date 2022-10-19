@@ -1,5 +1,5 @@
 export type NewOrganizationFormProps = {
-  isOpened: boolean;
+  isOpen: boolean;
   onClose: () => void;
 };
 
