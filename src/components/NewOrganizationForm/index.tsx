@@ -3,7 +3,7 @@ import { IconCheck } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { FC } from 'react';
 
-import { CustomDropzone } from './CustomDropzone';
+import { ImageDropzone } from '../UI';
 
 import { FormValues, NewOrganizationFormProps } from './types';
 import styles from './NewOrganizationForm.module.scss';
@@ -27,7 +27,7 @@ export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpened, on
   const modalTitle = <div className={styles.title}>Створити нову організацію</div>;
 
   return (
-    <Modal opened={isOpened} onClose={onClose} title={modalTitle} size={720} centered>
+    <Modal opened={isOpened} onClose={onClose} title={modalTitle} size={720} padding="xs" centered>
       <form onSubmit={form.onSubmit(handleFormSubmission)}>
         <Box className={styles.form}>
           <TextInput
@@ -48,7 +48,7 @@ export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpened, on
             label="Веб-сайт організації"
           />
           <Textarea mt="sm" placeholder="Введіть опис організації" label="Опис організації" />
-          <CustomDropzone />
+          <ImageDropzone />
         </Box>
         <Box pt="sm" className={styles['button-container']}>
           <Button type="submit" leftIcon={<IconCheck />}>

@@ -1,0 +1,56 @@
+.container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.navigation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+
+.info-container {
+  width: 100%;
+}
+
+.info-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-stats {
+  display: flex;
+  flex-direction: row;
+}
+
+.info-badge {
+  height: 44px;
+}
+
+.tools-container {
+  display: flex;
+  flex-direction: row;
+
+  input,
+  button {
+    height: 48px;
+  }
+
+  input {
+    width: 400px;
+  }
+}
+
+.centers-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

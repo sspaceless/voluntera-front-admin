@@ -7,13 +7,11 @@ import { Layout } from '../components';
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
-      <title>Volontera</title>
+      <title>Voluntera</title>
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
     </Head>
 
     <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
       theme={{
         fontFamily: 'Manrope',
         colors: {
@@ -29,6 +27,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
           success: ['#4EB828'],
         },
       }}
+      withGlobalStyles
+      withNormalizeCSS
     >
       <Layout>
         <Component {...pageProps} />
