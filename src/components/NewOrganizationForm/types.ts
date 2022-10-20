@@ -4,8 +4,8 @@ export type NewOrganizationFormProps = {
 };
 
 export type FormValues = {
-  name: string;
+  title: string;
   phone: string;
-  webPageUrl?: string;
+  link?: string;
   description?: string;
 };

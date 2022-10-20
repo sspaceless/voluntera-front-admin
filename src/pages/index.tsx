@@ -27,11 +27,11 @@ const HomePage: FC<{ organizationsData: OrganizationData[] }> = ({ organizations
   };
 
   const filteredOrganizations = organizationsData.filter((organization) => {
-    return organization.name.includes(searchQuery.trim());
+    return organization.title.includes(searchQuery.trim());
   });
 
   const organizations = filteredOrganizations.map((item) => (
-    <OrganizationCard key={item.id} id={item.id} name={item.name} imageUrl={item.imageUrl} />
+    <OrganizationCard key={item.id} data={item} />
   ));
 
   return (

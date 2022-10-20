@@ -2,21 +2,21 @@ import { ParsedUrlQuery } from 'querystring';
 
 export type CenterData = {
   id: string;
-  name: string;
+  title: string;
   address: string;
   phoneNumber: string;
   start: string;
   end: string;
   longitude: string;
   latitude: string;
-  services: string[];
+  service: string;
 };
 
 export type OrganizationData = {
   id: string;
-  name: string;
-  imageUrl: string;
-  webPageUrl: string;
+  title: string;
+  photoUrl: string;
+  link: string;
   phoneNumber: string;
   description: string;
   centers?: CenterData[];

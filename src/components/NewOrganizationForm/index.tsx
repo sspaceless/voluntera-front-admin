@@ -8,17 +8,18 @@ import { ImageDropzone } from '../UI';
 import { NewOrganizationFormProps } from './types';
 import styles from './NewOrganizationForm.module.scss';
 import { OrganizationDataFormValues } from '../../types';
+import { ORGANIZATION_FORM_VALIDATION } from '../../constants';
 
 export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpen, onClose }) => {
   const form = useForm<OrganizationDataFormValues>({
     initialValues: {
-      name: '',
+      title: '',
       phoneNumber: '',
-      webPageUrl: '',
+      link: '',
       description: '',
-      imageUrl: '',
+      photoUrl: '',
     },
-    validate: {},
+    validate: ORGANIZATION_FORM_VALIDATION,
   });
 
   const handleFormSubmission = (values: OrganizationDataFormValues) => {
@@ -42,20 +43,28 @@ export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpen, onCl
             mt="xl"
             placeholder="Введіть назву організації"
             label="Назва організації"
+            {...form.getInputProps('title')}
             withAsterisk
           />
           <TextInput
             mt="sm"
             placeholder="Введіть телефон організації"
             label="Телефон організації"
+            {...form.getInputProps('phoneNumber')}
             withAsterisk
           />
           <TextInput
             mt="sm"
             placeholder="Введіть посилання на веб-сайт організації"
+            {...form.getInputProps('link')}
             label="Веб-сайт організації"
           />
-          <Textarea mt="sm" placeholder="Введіть опис організації" label="Опис організації" />
+          <Textarea
+            mt="sm"
+            placeholder="Введіть опис організації"
+            label="Опис організації"
+            {...form.getInputProps('description')}
+          />
           <ImageDropzone />
         </Box>
         <Box pt="sm" className={styles['button-container']}>

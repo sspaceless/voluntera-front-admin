@@ -8,16 +8,22 @@ import { ImageDropzone } from '../UI';
 import { EditOrganizationFormProps } from './types';
 import styles from './EditOrganizationForm.module.scss';
 import { OrganizationDataFormValues } from '../../types';
+import { ORGANIZATION_FORM_VALIDATION } from '../../constants';
 
 export const EditOrganizationForm: FC<EditOrganizationFormProps> = ({ isOpen, onClose, data }) => {
   const theme = useMantineTheme();
 
   const form = useForm<OrganizationDataFormValues>({
     initialValues: data,
-    validate: {},
+    validate: ORGANIZATION_FORM_VALIDATION,
   });
 
   const handleFormSubmission = (values: OrganizationDataFormValues) => {
+    onClose();
+    form.reset();
+  };
+
+  const handleModalClosing = () => {
     onClose();
     form.reset();
   };
@@ -31,14 +37,21 @@ export const EditOrganizationForm: FC<EditOrganizationFormProps> = ({ isOpen, on
   );
 
   return (
-    <Modal opened={isOpen} onClose={onClose} title={modalTitle} size={720} padding={30} centered>
+    <Modal
+      opened={isOpen}
+      onClose={handleModalClosing}
+      title={modalTitle}
+      size={720}
+      padding={30}
+      centered
+    >
       <form onSubmit={form.onSubmit(handleFormSubmission)}>
         <Box className={styles.form}>
           <TextInput
             mt="xl"
             placeholder="Введіть назву організації"
             label="Назва організації"
-            {...form.getInputProps('name')}
+            {...form.getInputProps('title')}
             withAsterisk
           />
           <TextInput
@@ -52,7 +65,7 @@ export const EditOrganizationForm: FC<EditOrganizationFormProps> = ({ isOpen, on
             mt="sm"
             placeholder="Введіть посилання на веб-сайт організації"
             label="Веб-сайт організації"
-            {...form.getInputProps('webPageUrl')}
+            {...form.getInputProps('link')}
           />
           <Textarea
             mt="sm"
@@ -71,7 +84,7 @@ export const EditOrganizationForm: FC<EditOrganizationFormProps> = ({ isOpen, on
             Видалити організацію
           </Button>
           <Button type="submit" leftIcon={<IconCheck />}>
-            Створити
+            Зберегти зміни
           </Button>
         </Box>
       </form>

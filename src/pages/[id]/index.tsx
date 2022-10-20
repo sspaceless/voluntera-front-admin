@@ -25,7 +25,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 
-import { CenterCard, EditOrganizationForm, NewCenterForm } from '../../components';
+import { Badges, CenterCard, EditOrganizationForm, NewCenterForm } from '../../components';
 
 import { MOCK_ORGANIZATIONS } from '../../constants';
 import styles from './Organization.module.scss';
@@ -71,13 +71,15 @@ const Organization: FC<{ data: OrganizationData }> = ({ data }) => {
   };
 
   const imageAlt = `${data.id}-organization-image`;
+  const services = data.centers.map((item) => item.service);
   const centers = data.centers.map((item) => <CenterCard key={item.id} data={item} />);
+
   const organizationInfo = (
     <Card p={0} className={styles['info-card']} withBorder>
-      <Image src={data.imageUrl} alt={imageAlt} width={224} height={224} />
+      <Image src={data.photoUrl} alt={imageAlt} width={224} height={224} />
       <Box className={styles['info-container']}>
         <Box my="sm" mx="md" className={styles['info-label']}>
-          <Text size="lg">{data.name}</Text>
+          <Text size="lg">{data.title}</Text>
           <ActionIcon onClick={toggleEditOrganizationForm}>
             <IconDotsVertical />
           </ActionIcon>
@@ -107,46 +109,7 @@ const Organization: FC<{ data: OrganizationData }> = ({ data }) => {
             Послуги організації:
           </Text>
           <Box>
-            <Badge
-              mr={8}
-              leftSection={<IconToolsKitchen2 />}
-              color="gray"
-              radius="xs"
-              variant="outline"
-              className={styles['info-badge']}
-            >
-              Їжа
-            </Badge>
-            <Badge
-              mr={8}
-              leftSection={<IconHanger />}
-              color="gray"
-              radius="xs"
-              variant="outline"
-              className={styles['info-badge']}
-            >
-              Одяг
-            </Badge>
-            <Badge
-              mr={8}
-              leftSection={<IconFirstAidKit />}
-              color="gray"
-              radius="xs"
-              variant="outline"
-              className={styles['info-badge']}
-            >
-              Медична допомога
-            </Badge>
-            <Badge
-              mr={8}
-              leftSection={<IconBed />}
-              color="gray"
-              radius="xs"
-              variant="outline"
-              className={styles['info-badge']}
-            >
-              Житло
-            </Badge>
+            <Badges services={services} />
           </Box>
         </Box>
       </Box>

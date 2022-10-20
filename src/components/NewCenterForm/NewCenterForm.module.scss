@@ -23,9 +23,10 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  gap: 16px;
 
   input {
-    width: 102px;
+    width: 100%;
   }
 }
 
@@ -34,8 +35,4 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-
-  input {
-    width: 272px;
-  }
 }

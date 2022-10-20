@@ -22,7 +22,7 @@ export const CenterCard: FC<CenterCardProps> = ({ data }) => {
       <Card mb={8} className={styles['center-card']} withBorder>
         <Box className={styles['info-container']}>
           <Text weight={600} size={18}>
-            {data.name}
+            {data.title}
           </Text>
 
           <Box mt={8} className={styles['info-label']}>
@@ -42,7 +42,7 @@ export const CenterCard: FC<CenterCardProps> = ({ data }) => {
           <Text mt={8} mb={4} weight={400} size={18} color={theme.colors.light[0]}>
             Послуга центру:
           </Text>
-          <Badges services={data.services} />
+          <Badges services={[data.service]} />
         </Box>
         <Box className={styles['buttons-container']}>
           <Button mb="md" variant="outline" leftIcon={<IconSettings />} onClick={toggleForm}>
