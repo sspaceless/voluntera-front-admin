@@ -19,7 +19,7 @@ export const Badges: FC<BadgesProps> = ({ services }) => {
     <Badge
       mr={8}
       key={item}
-      style={{ color: theme.colors.light[0], borderColor: theme.colors.light[0] }}
+      style={{ color: theme.colors.secondary[0], borderColor: theme.colors.stroke[0] }}
       radius="xs"
       variant="outline"
       className={styles.badge}

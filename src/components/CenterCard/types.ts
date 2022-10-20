@@ -1,14 +1,5 @@
-export type Center = {
-  name: string;
-  address: string;
-  phoneNumber: string;
-  start: string;
-  end: string;
-  longitude: string;
-  latitude: string;
-  services: string[];
-};
+import { CenterData } from '../../types';
 
 export type CenterCardProps = {
-  data: Center;
+  data: CenterData;
 };

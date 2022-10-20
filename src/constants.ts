@@ -15,7 +15,7 @@ export const SERVICES_LABELS = new Map([
 export const MOCK_ORGANIZATIONS = [
   {
     id: '1',
-    name: 'Повернись ситим',
+    name: 'Повернись ситим 1',
     phoneNumber: '12312312323',
     imageUrl: '/images/mock.png',
     centers: [
@@ -44,7 +44,7 @@ export const MOCK_ORGANIZATIONS = [
   },
   {
     id: '2',
-    name: 'Повернись ситим',
+    name: 'Повернись ситим 2',
     imageUrl: '/images/mock.png',
     centers: [
       {
@@ -72,7 +72,7 @@ export const MOCK_ORGANIZATIONS = [
   },
   {
     id: '3',
-    name: 'Повернись ситим',
+    name: 'Повернись ситим 3',
     imageUrl: '/images/mock.png',
     centers: [
       {

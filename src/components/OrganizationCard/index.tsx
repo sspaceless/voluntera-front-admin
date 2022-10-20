@@ -18,7 +18,7 @@ export const OrganizationCard: FC<OrganizationCardProps> = ({ id, name, imageUrl
   return (
     <Card p="sm" className={styles.container}>
       <div className={styles['name-container']}>{name}</div>
-      <Image src={imageUrl} alt={imageAlt} />
+      <Image src={imageUrl} alt={imageAlt} radius={4} />
       <Button
         mt="md"
         fullWidth

@@ -5,18 +5,19 @@ import { FC } from 'react';
 
 import { ImageDropzone } from '../UI';
 
-import { EditOrganizationFormProps, FormValues } from './types';
+import { EditOrganizationFormProps } from './types';
 import styles from './EditOrganizationForm.module.scss';
+import { OrganizationDataFormValues } from '../../types';
 
 export const EditOrganizationForm: FC<EditOrganizationFormProps> = ({ isOpen, onClose, data }) => {
   const theme = useMantineTheme();
 
-  const form = useForm<FormValues>({
+  const form = useForm<OrganizationDataFormValues>({
     initialValues: data,
     validate: {},
   });
 
-  const handleFormSubmission = (values: FormValues) => {
+  const handleFormSubmission = (values: OrganizationDataFormValues) => {
     onClose();
     form.reset();
   };

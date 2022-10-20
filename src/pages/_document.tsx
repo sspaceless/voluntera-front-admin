@@ -4,8 +4,8 @@ import { FC } from 'react';
 const Document: FC = () => (
   <Html>
     <Head>
-      <link rel="icon" type="image/" sizes="32x32" href="/favicon-32x32.svg" />
-      <link rel="icon" type="image/" sizes="16x16" href="/favicon-16x16.svg" />
+      <link rel="icon" type="image/" sizes="32x32" href="/images/favicon.svg" />
+      <link rel="icon" type="image/" sizes="16x16" href="/images/favicon.svg" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />

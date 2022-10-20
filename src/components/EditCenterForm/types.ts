@@ -1,16 +1,7 @@
+import { CenterData } from '../../types';
+
 export type EditCenterFormProps = {
   isOpen: boolean;
-  data: FormValues;
+  data: CenterData;
   onClose: () => void;
-};
-
-export type FormValues = {
-  name: string;
-  address: string;
-  phoneNumber: string;
-  start: string;
-  end: string;
-  longitude: string;
-  latitude: string;
-  services: string[];
 };

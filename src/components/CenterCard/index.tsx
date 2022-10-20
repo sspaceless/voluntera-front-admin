@@ -21,25 +21,25 @@ export const CenterCard: FC<CenterCardProps> = ({ data }) => {
       <EditCenterForm isOpen={isFormOpen} onClose={toggleForm} data={data} />
       <Card mb={8} className={styles['center-card']} withBorder>
         <Box className={styles['info-container']}>
-          <Text mb={8} weight={600} size={18}>
+          <Text weight={600} size={18}>
             {data.name}
           </Text>
 
-          <Box className={styles['info-label']}>
+          <Box mt={8} className={styles['info-label']}>
             <IconBuildingCommunity size={20} color={theme.colors.secondary[0]} />
             <Text ml={8} weight={400} size={16} color={theme.colors.secondary[0]}>
               {city}
             </Text>
           </Box>
 
-          <Box className={styles['info-label']}>
+          <Box mt={8} className={styles['info-label']}>
             <IconMapPin size={20} color={theme.colors.secondary[0]} />
             <Text ml={8} weight={400} size={16} color={theme.colors.secondary[0]}>
               {data.address}
             </Text>
           </Box>
 
-          <Text weight={400} size={18} color={theme.colors.light[0]}>
+          <Text mt={8} mb={4} weight={400} size={18} color={theme.colors.light[0]}>
             Послуга центру:
           </Text>
           <Badges services={data.services} />

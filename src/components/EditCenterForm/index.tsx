@@ -4,7 +4,6 @@ import {
   Divider,
   Modal,
   Checkbox,
-  Stepper,
   Text,
   TextInput,
   useMantineTheme,
@@ -14,25 +13,17 @@ import { IconCheck, IconTrash } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { FC } from 'react';
 
-import { FormValues, EditCenterFormProps } from './types';
+import { CenterData, CenterDataFormValues } from '../../types';
+import { EditCenterFormProps } from './types';
 import { ImageDropzone } from '../UI';
 
 import { SERVICES, SERVICES_LABELS } from '../../constants';
 import styles from './EditCenterForm.module.scss';
 
-export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose }) => {
+export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose, data }) => {
   const theme = useMantineTheme();
-  const form = useForm<FormValues>({
-    initialValues: {
-      name: '',
-      address: '',
-      longitude: '',
-      latitude: '',
-      phoneNumber: '',
-      start: '',
-      end: '',
-      services: [],
-    },
+  const form = useForm<CenterDataFormValues>({
+    initialValues: data,
     validate: {},
   });
 
@@ -40,7 +31,7 @@ export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose }) => 
     onClose();
   };
 
-  const handleFormSubmission = (values: FormValues) => {
+  const handleFormSubmission = (values: CenterData) => {
     console.log(values);
     onClose();
   };

@@ -4,7 +4,8 @@ import { IconCheck } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { FC, useState } from 'react';
 
-import { FormValues, NewCenterFormProps } from './types';
+import { CenterDataFormValues } from '../../types';
+import { NewCenterFormProps } from './types';
 import { ImageDropzone } from '../UI';
 
 import { SERVICES, SERVICES_LABELS } from '../../constants';
@@ -13,7 +14,7 @@ import styles from './NewCenterForm.module.scss';
 export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
   const [active, setActive] = useState(0);
 
-  const form = useForm<FormValues>({
+  const form = useForm<CenterDataFormValues>({
     initialValues: {
       name: '',
       address: '',
@@ -40,7 +41,7 @@ export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
     setActive(0);
   };
 
-  const handleFormSubmission = (values: FormValues) => {
+  const handleFormSubmission = (values: CenterDataFormValues) => {
     if (active < 1) {
       setActive(1);
       return;

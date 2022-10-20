@@ -22,7 +22,6 @@ import {
 } from '@tabler/icons';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ParsedUrlQuery } from 'querystring';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 
@@ -30,34 +29,7 @@ import { CenterCard, EditOrganizationForm, NewCenterForm } from '../../component
 
 import { MOCK_ORGANIZATIONS } from '../../constants';
 import styles from './Organization.module.scss';
-
-export type Center = {
-  id: string;
-  name: string;
-  address: string;
-  phoneNumber: string;
-  start: string;
-  end: string;
-  longitude: string;
-  latitude: string;
-  services: string[];
-};
-
-export type OrganizationData = {
-  id: string;
-  name: string;
-  imageUrl: string;
-  phoneNumber: string;
-  centers?: Center[];
-};
-
-export type OrganizationProps = {
-  data: OrganizationData;
-};
-
-export interface IParams extends ParsedUrlQuery {
-  id: string;
-}
+import { IParams, OrganizationData } from '../../types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = MOCK_ORGANIZATIONS.map((item) => ({
@@ -79,7 +51,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Organization: FC<OrganizationProps> = ({ data }) => {
+const Organization: FC<{ data: OrganizationData }> = ({ data }) => {
   const [isNewCenterFormOpen, setIsFormOpen] = useState(false);
   const [isEdiFormOpen, setIsEditFormOpen] = useState(false);
 

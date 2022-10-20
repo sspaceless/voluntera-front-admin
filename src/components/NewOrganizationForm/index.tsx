@@ -5,21 +5,23 @@ import { FC } from 'react';
 
 import { ImageDropzone } from '../UI';
 
-import { FormValues, NewOrganizationFormProps } from './types';
+import { NewOrganizationFormProps } from './types';
 import styles from './NewOrganizationForm.module.scss';
+import { OrganizationDataFormValues } from '../../types';
 
 export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpen, onClose }) => {
-  const form = useForm<FormValues>({
+  const form = useForm<OrganizationDataFormValues>({
     initialValues: {
       name: '',
-      phone: '',
+      phoneNumber: '',
       webPageUrl: '',
       description: '',
+      imageUrl: '',
     },
     validate: {},
   });
 
-  const handleFormSubmission = (values: FormValues) => {
+  const handleFormSubmission = (values: OrganizationDataFormValues) => {
     console.log(values);
     onClose();
   };

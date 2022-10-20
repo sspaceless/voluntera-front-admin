@@ -20,10 +20,11 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             <Link href="/">
               <a>
                 <Image
-                  src="/images/volontera-logo.svg"
-                  alt="volontera-logo"
-                  width={25}
-                  height={25}
+                  src="/images/voluntera-logo.svg"
+                  alt="voluntera-logo"
+                  width={134.3}
+                  height={32}
+                  style={{ cursor: 'pointer' }}
                 />
               </a>
             </Link>
