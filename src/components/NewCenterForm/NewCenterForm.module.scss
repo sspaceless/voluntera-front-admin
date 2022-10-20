@@ -1,0 +1,41 @@
+.title {
+  display: flex;
+  justify-content: center;
+  width: 625px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+
+  &.second {
+    justify-content: space-between;
+  }
+
+  button {
+    width: 265px;
+    height: 48px;
+  }
+}
+
+.time-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  input {
+    width: 102px;
+  }
+}
+
+.paired-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  input {
+    width: 272px;
+  }
+}

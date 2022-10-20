@@ -12,6 +12,7 @@
   "rules": {
     "semi": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "function-paren-newline": ["error", "never"],
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": [
       2,

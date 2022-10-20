@@ -1,0 +1,26 @@
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.center-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 320px;
+    height: 48px;
+  }
+}

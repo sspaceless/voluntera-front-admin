@@ -263,6 +263,13 @@
     "@radix-ui/react-scroll-area" "1.0.0"
     react-textarea-autosize "8.3.4"
 
+"@mantine/dates@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@mantine/dates/-/dates-5.6.0.tgz#39c5dbde4ec85621875d123f1a19bf17c277ae62"
+  integrity sha512-0+mobBdoTd9kS/5WNkxHU/UxTr6GsOMDFCwplt7NovxDKfbdYBu4+wR3knIREN0llcmaxDc/eINOjGaRm+kYFw==
+  dependencies:
+    "@mantine/utils" "5.6.0"
+
 "@mantine/dropzone@^5.5.5":
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-5.5.5.tgz#9f21c23a22c4f14c850bfbc4c30475c3771cc436"
@@ -319,6 +326,11 @@
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.5.tgz#22b412b6e9d78f2515f9f98db3f5ed83deca91ca"
   integrity sha512-nt8+A0N1cV4cJNqlKuXazShoEwqtLohHNKFuywEdF3B6vHWdbY799PbT2WmqGTwNQ+se8y5/nBMmamBZrUN4fg==
+
+"@mantine/utils@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.6.0.tgz#e0515e9071704c3f91509cb0629383dbc677c86c"
+  integrity sha512-HFe/B/Z6R9j7n0pcumaAl0yYeM+EbRPlZht0t5CP79nZcgz0ANUsnp3f3SGJA/Bc2spO0hd1Cr0daBb1liBMRg==
 
 "@next/env@12.3.1":
   version "12.3.1"
@@ -534,6 +546,11 @@
   integrity sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw==
   dependencies:
     tslib "^2.4.0"
+
+"@tabler/icons@^1.105.0":
+  version "1.105.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.105.0.tgz#61e845a5e6d5a2e2f13b20802f398e6be1f596b0"
+  integrity sha512-tJBH0qndheryzFFPu/RD5pKCVICw5+KuYWRC07l26QYCHcKVlwOvIgz/65qh9EnGNZGtJAxwfWqIbmy5UA4Wzg==
 
 "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
@@ -1098,6 +1115,11 @@ damerau-levenshtein@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz#b43d286ccbd36bc5b2f7ed41caf2d0aba1f8a6e7"
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
+
+dayjs@^1.11.5:
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.5.tgz#00e8cc627f231f9499c19b38af49f56dc0ac5e93"
+  integrity sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==
 
 debug@^2.6.9:
   version "2.6.9"
