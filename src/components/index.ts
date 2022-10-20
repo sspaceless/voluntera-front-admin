@@ -1,3 +1,4 @@
+export { EditOrganizationForm } from './EditOrganizationForm';
 export { NewOrganizationForm } from './NewOrganizationForm';
 export { OrganizationCard } from './OrganizationCard';
 export { NewCenterForm } from './NewCenterForm';

@@ -1,4 +1,5 @@
 import { Box, Button, Divider, Modal, Checkbox, Stepper, Text, TextInput } from '@mantine/core';
+import { TimeInput } from '@mantine/dates';
 import { IconCheck } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { FC, useState } from 'react';
@@ -92,14 +93,23 @@ export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
     <>
       <Divider />
       <Box className={styles.form}>
-        <Box mt={12} mb={16} className={styles['paired-input-container']}>
-          <TextInput
+        <Box mt={12} mb={16} className={styles['time-input-container']}>
+          <TimeInput
             mt="sm"
-            placeholder="Введіть час відкриття"
             label="Час відкриття"
+            format="24"
+            defaultValue={new Date(0)}
             withAsterisk
+            clearable
           />
-          <TextInput mt="sm" placeholder="Введіть час закриття" label="Час закриття" withAsterisk />
+          <TimeInput
+            mt="sm"
+            label="Час закриття"
+            format="24"
+            defaultValue={new Date(0)}
+            withAsterisk
+            clearable
+          />
         </Box>
         <Checkbox.Group
           mt="md"

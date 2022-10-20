@@ -16,6 +16,7 @@ export const MOCK_ORGANIZATIONS = [
   {
     id: '1',
     name: 'Повернись ситим',
+    phoneNumber: '12312312323',
     imageUrl: '/images/mock.png',
     centers: [
       {

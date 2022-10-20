@@ -26,7 +26,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 
-import { CenterCard, NewCenterForm } from '../../components';
+import { CenterCard, EditOrganizationForm, NewCenterForm } from '../../components';
 
 import { MOCK_ORGANIZATIONS } from '../../constants';
 import styles from './Organization.module.scss';
@@ -43,7 +43,8 @@ export type OrganizationData = {
   id: string;
   name: string;
   imageUrl: string;
-  centers: Center[];
+  phoneNumber: string;
+  centers?: Center[];
 };
 
 export type OrganizationProps = {
@@ -75,13 +76,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Organization: FC<OrganizationProps> = ({ data }) => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isNewCenterFormOpen, setIsFormOpen] = useState(false);
+  const [isEdiFormOpen, setIsEditFormOpen] = useState(false);
 
   const theme = useMantineTheme();
   const router = useRouter();
 
-  const toggleModal = () => {
+  const toggleNewCenterForm = () => {
     setIsFormOpen((prevState) => !prevState);
+  };
+
+  const toggleEditOrganizationForm = () => {
+    setIsEditFormOpen((prevState) => !prevState);
   };
 
   const handleForwardButtonClick = () => {
@@ -96,7 +102,7 @@ const Organization: FC<OrganizationProps> = ({ data }) => {
       <Box className={styles['info-container']}>
         <Box my="sm" mx="md" className={styles['info-label']}>
           <Text size="lg">{data.name}</Text>
-          <ActionIcon>
+          <ActionIcon onClick={toggleEditOrganizationForm}>
             <IconDotsVertical />
           </ActionIcon>
         </Box>
@@ -173,7 +179,12 @@ const Organization: FC<OrganizationProps> = ({ data }) => {
 
   return (
     <>
-      <NewCenterForm isOpen={isFormOpen} onClose={toggleModal} />
+      <EditOrganizationForm
+        isOpen={isEdiFormOpen}
+        onClose={toggleEditOrganizationForm}
+        data={data}
+      />
+      <NewCenterForm isOpen={isNewCenterFormOpen} onClose={toggleNewCenterForm} />
       <Box style={{ display: 'flex', justifyContent: 'center' }}>
         <Box className={styles.container}>
           <Box mb="xl" className={styles['navigation-container']}>
@@ -195,7 +206,7 @@ const Organization: FC<OrganizationProps> = ({ data }) => {
                 rightSection={<IconSearch size={15} />}
                 placeholder="Пошук за назвою центру"
               />
-              <Button leftIcon={<IconPlus />} onClick={toggleModal}>
+              <Button leftIcon={<IconPlus />} onClick={toggleNewCenterForm}>
                 Додати центр
               </Button>
             </Box>
