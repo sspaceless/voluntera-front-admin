@@ -15,19 +15,26 @@ export const Badges: FC<BadgesProps> = ({ services }) => {
     [SERVICES.aid, <IconFirstAidKit key={SERVICES.aid} size={18} />],
   ]);
 
-  const badges = services.map((item) => (
-    <Badge
-      mr={8}
-      key={item}
-      style={{ color: theme.colors.secondary[0], borderColor: theme.colors.stroke[0] }}
-      radius="xs"
-      variant="outline"
-      className={styles.badge}
-      leftSection={badgesIcons.get(SERVICES[`${item}`])}
-    >
-      {SERVICES_LABELS.get(SERVICES[`${item}`])}
-    </Badge>
-  ));
+  const badges = services.map((item, index) => {
+    if (!item) {
+      return undefined;
+    }
+
+    const id = `${item}-${index}`;
+    return (
+      <Badge
+        mr={8}
+        key={id}
+        style={{ color: theme.colors.secondary[0], borderColor: theme.colors.stroke[0] }}
+        radius="xs"
+        variant="outline"
+        className={styles.badge}
+        leftSection={badgesIcons.get(SERVICES[`${item}`])}
+      >
+        {SERVICES_LABELS.get(SERVICES[`${item}`])}
+      </Badge>
+    );
+  });
 
   return <Box>{badges}</Box>;
 };

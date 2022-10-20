@@ -3,7 +3,7 @@ import {
   Button,
   Divider,
   Modal,
-  Checkbox,
+  Radio,
   Text,
   TextInput,
   useMantineTheme,
@@ -17,18 +17,19 @@ import { CenterData, CenterDataFormValues } from '../../types';
 import { EditCenterFormProps } from './types';
 import { ImageDropzone } from '../UI';
 
-import { SERVICES, SERVICES_LABELS } from '../../constants';
+import { CENTER_DATA_FORM_VALIDATION, SERVICES, SERVICES_LABELS } from '../../constants';
 import styles from './EditCenterForm.module.scss';
 
 export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose, data }) => {
   const theme = useMantineTheme();
   const form = useForm<CenterDataFormValues>({
     initialValues: data,
-    validate: {},
+    validate: CENTER_DATA_FORM_VALIDATION,
   });
 
   const handleModalClosing = () => {
     onClose();
+    form.reset();
   };
 
   const handleFormSubmission = (values: CenterData) => {
@@ -46,22 +47,41 @@ export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose, data 
 
   const firstStep = (
     <Box mt={24} className={styles['form-wrapper']}>
-      <TextInput placeholder="Введіть назву центру" label="Назва центру" withAsterisk />
+      <TextInput
+        placeholder="Введіть назву центру"
+        label="Назва центру"
+        withAsterisk
+        {...form.getInputProps('title')}
+      />
       <TextInput
         mt="sm"
         placeholder="Введіть повну адресу центру"
         label="Адреса центру"
+        {...form.getInputProps('address')}
         withAsterisk
       />
       <Box className={styles['paired-input-container']}>
-        <TextInput mt="sm" placeholder="Введіть широту" label="Широта" withAsterisk />
-        <TextInput mt="sm" placeholder="Введіть довготу" label="Довгота" withAsterisk />
+        <TextInput
+          mt="sm"
+          placeholder="Введіть широту"
+          label="Широта"
+          {...form.getInputProps('latitude')}
+          withAsterisk
+        />
+        <TextInput
+          mt="sm"
+          placeholder="Введіть довготу"
+          label="Довгота"
+          {...form.getInputProps('longitude')}
+          withAsterisk
+        />
       </Box>
       <TextInput
         mt="sm"
         mb="xl"
         placeholder="Введіть телефон центру"
         label="Телефон центру"
+        {...form.getInputProps('phoneNumber')}
         withAsterisk
       />
     </Box>
@@ -70,32 +90,21 @@ export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose, data 
   const secondStep = (
     <Box mt={24} className={styles['form-wrapper']}>
       <Box mb={16} className={styles['time-input-container']}>
-        <TimeInput
-          label="Час відкриття"
-          format="24"
-          defaultValue={new Date(0)}
-          withAsterisk
-          clearable
-        />
-        <TimeInput
-          label="Час закриття"
-          format="24"
-          defaultValue={new Date(0)}
-          withAsterisk
-          clearable
-        />
+        <TimeInput label="Час відкриття" format="24" withAsterisk clearable />
+        <TimeInput label="Час закриття" format="24" withAsterisk clearable />
       </Box>
-      <Checkbox.Group
+      <Radio.Group
         mt="md"
         label="Послуга центру"
         withAsterisk
         className={styles['checkbox-container']}
+        {...form.getInputProps('service')}
       >
-        <Checkbox value={SERVICES.food} label={SERVICES_LABELS.get(SERVICES.food)} />
-        <Checkbox value={SERVICES.clothes} label={SERVICES_LABELS.get(SERVICES.clothes)} />
-        <Checkbox value={SERVICES.aid} label={SERVICES_LABELS.get(SERVICES.aid)} />
-        <Checkbox value={SERVICES.housing} label={SERVICES_LABELS.get(SERVICES.housing)} />
-      </Checkbox.Group>
+        <Radio value={SERVICES.food} label={SERVICES_LABELS.get(SERVICES.food)} />
+        <Radio value={SERVICES.clothes} label={SERVICES_LABELS.get(SERVICES.clothes)} />
+        <Radio value={SERVICES.aid} label={SERVICES_LABELS.get(SERVICES.aid)} />
+        <Radio value={SERVICES.housing} label={SERVICES_LABELS.get(SERVICES.housing)} />
+      </Radio.Group>
       <ImageDropzone />
     </Box>
   );
@@ -125,7 +134,7 @@ export const EditCenterForm: FC<EditCenterFormProps> = ({ isOpen, onClose, data 
             Видалити центр
           </Button>
           <Button type="submit" leftIcon={<IconCheck />}>
-            Створити
+            Зберегти зміни
           </Button>
         </Box>
       </form>

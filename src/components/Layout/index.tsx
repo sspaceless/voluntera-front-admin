@@ -33,8 +33,15 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         </Header>
       }
       styles={{
+        root: {
+          width: '100%',
+        },
+        body: {
+          width: '100%',
+        },
         main: {
           backgroundColor: theme.colors.background[0],
+          width: '100%',
         },
       }}
     >

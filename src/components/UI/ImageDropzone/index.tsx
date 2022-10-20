@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, FileWithPath } from '@mantine/dropzone';
 import { Group, Text, useMantineTheme, Box } from '@mantine/core';
 import { IconCheck, IconUpload, IconX } from '@tabler/icons';

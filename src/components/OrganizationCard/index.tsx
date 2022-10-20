@@ -6,19 +6,19 @@ import { FC } from 'react';
 import styles from './OrganizationCard.module.scss';
 import { OrganizationCardProps } from './types';
 
-export const OrganizationCard: FC<OrganizationCardProps> = ({ id, name, imageUrl }) => {
+export const OrganizationCard: FC<OrganizationCardProps> = ({ data }) => {
   const router = useRouter();
 
   const handleButtonClick = () => {
-    router.push(`/${id}`);
+    router.push(`/${data.id}`);
   };
 
-  const imageAlt = `organization-${id}`;
+  const imageAlt = `organization-${data.id}`;
 
   return (
     <Card p="sm" className={styles.container}>
-      <div className={styles['name-container']}>{name}</div>
-      <Image src={imageUrl} alt={imageAlt} radius={4} />
+      <div className={styles['name-container']}>{data.title}</div>
+      <Image src={data.photoUrl} alt={imageAlt} radius={4} />
       <Button
         mt="md"
         fullWidth
