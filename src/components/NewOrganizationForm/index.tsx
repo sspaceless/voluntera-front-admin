@@ -33,7 +33,7 @@ export const NewOrganizationForm: FC<NewOrganizationFormProps> = ({ isOpen, onCl
   );
 
   return (
-    <Modal opened={isOpen} onClose={onClose} title={modalTitle} size={720} padding="xs" centered>
+    <Modal opened={isOpen} onClose={onClose} title={modalTitle} size={720} padding={30} centered>
       <form onSubmit={form.onSubmit(handleFormSubmission)}>
         <Box className={styles.form}>
           <TextInput

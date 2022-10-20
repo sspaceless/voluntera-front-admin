@@ -39,7 +39,7 @@ const HomePage: FC = () => {
           placeholder="Одеса, Одеська область: 3 центри"
         />
       </div>
-      <Group>{organizations}</Group>
+      <Group mt="sm">{organizations}</Group>
     </>
   );
 };

@@ -16,7 +16,7 @@ export const OrganizationCard: FC<OrganizationCardProps> = ({ id, name, imageUrl
   const imageAlt = `organization-${id}`;
 
   return (
-    <Card p="sm" my="sm" className={styles.container}>
+    <Card p="sm" className={styles.container}>
       <div className={styles['name-container']}>{name}</div>
       <Image src={imageUrl} alt={imageAlt} />
       <Button

@@ -1,4 +1,10 @@
-export type Center = {
+export type EditCenterFormProps = {
+  isOpen: boolean;
+  data: FormValues;
+  onClose: () => void;
+};
+
+export type FormValues = {
   name: string;
   address: string;
   phoneNumber: string;
@@ -7,8 +13,4 @@ export type Center = {
   longitude: string;
   latitude: string;
   services: string[];
-};
-
-export type CenterCardProps = {
-  data: Center;
 };

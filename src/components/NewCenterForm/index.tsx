@@ -92,7 +92,7 @@ export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
   const secondStep = (
     <>
       <Divider />
-      <Box className={styles.form}>
+      <Box>
         <Box mt={12} mb={16} className={styles['time-input-container']}>
           <TimeInput
             mt="sm"
@@ -111,12 +111,7 @@ export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
             clearable
           />
         </Box>
-        <Checkbox.Group
-          mt="md"
-          label="Послуга центру"
-          withAsterisk
-          className={styles['checkbox-container']}
-        >
+        <Checkbox.Group mt="md" label="Послуга центру" withAsterisk>
           <Checkbox value={SERVICES.food} label={SERVICES_LABELS.get(SERVICES.food)} />
           <Checkbox value={SERVICES.clothes} label={SERVICES_LABELS.get(SERVICES.clothes)} />
           <Checkbox value={SERVICES.aid} label={SERVICES_LABELS.get(SERVICES.aid)} />
@@ -142,7 +137,7 @@ export const NewCenterForm: FC<NewCenterFormProps> = ({ isOpen, onClose }) => {
       onClose={handleModalClosing}
       title={modalTitle}
       size={720}
-      padding="xs"
+      padding={30}
       centered
     >
       <form onSubmit={form.onSubmit(handleFormSubmission)}>

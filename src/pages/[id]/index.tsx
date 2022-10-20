@@ -34,8 +34,12 @@ import styles from './Organization.module.scss';
 export type Center = {
   id: string;
   name: string;
-  city: string;
   address: string;
+  phoneNumber: string;
+  start: string;
+  end: string;
+  longitude: string;
+  latitude: string;
   services: string[];
 };
 
