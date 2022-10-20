@@ -3,23 +3,13 @@ import {
   ActionIcon,
   Divider,
   Button,
-  Badge,
   Image,
   Card,
   Text,
   Box,
   Input,
 } from '@mantine/core';
-import {
-  IconBed,
-  IconChevronLeft,
-  IconDotsVertical,
-  IconFirstAidKit,
-  IconHanger,
-  IconPlus,
-  IconSearch,
-  IconToolsKitchen2,
-} from '@tabler/icons';
+import { IconChevronLeft, IconDotsVertical, IconPlus, IconSearch } from '@tabler/icons';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
